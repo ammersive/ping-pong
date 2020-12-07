@@ -20,12 +20,12 @@ const server = state => ({
   player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
 });
 const winner = state => { 
-  if (state.player1 === 21) {
+  if (state.player1 >= 21) {
     return {
       ...state,
       winner: 1
     }
-  } else if (state.player2 === 21) {
+  } else if (state.player2 >= 21) {
     return {
       ...state,
       winner: 2
