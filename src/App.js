@@ -1,4 +1,4 @@
-const App = ({ p1score, onIncrement }) => (
+const App = ({ p1score, p2score, onIncrement1, onIncrement2 }) => (
   <>
     {/* header */}
     <header className="jumbotron mt-4 mb-0">
@@ -15,7 +15,7 @@ const App = ({ p1score, onIncrement }) => (
           </div>
           <div className="card-footer">
             <button
-              onClick={ onIncrement } 
+              onClick={ onIncrement1 } 
               className="form-control btn btn-success"
             >+</button>
           </div>
@@ -26,10 +26,13 @@ const App = ({ p1score, onIncrement }) => (
         <div className="card text-center">
           <h5 className="card-header">Player 2</h5>
           <div className="card-body">
-            <p className="card-text display-1">{/* player2 score */}</p>
+            <p className="card-text display-1">{ p2score }</p>
           </div>
           <div className="card-footer">
-            <button className="form-control btn btn-success">+</button>
+            <button
+              onClick={ onIncrement2 } 
+              className="form-control btn btn-success"
+            >+</button>
           </div>
         </div>
       </div>

@@ -16,6 +16,10 @@ const reducer = (state, action) => {
       ...state, 
       player1: state.player1 + 1 
     };
+    case "PLAYER2_INCREMENT": return { 
+      ...state, 
+      player2: state.player2 + 1 
+    };
     default: return state;
   }
 };
@@ -25,14 +29,12 @@ const store = createStore(reducer, initial);
 // subscribe to changes
 store.subscribe(() => {
   let state = store.getState();
-  // for now, just log the new count
+  // log the states
   console.log(state.player1, state.player2);
 });
 
 // trigger a player 1 increment action
-store.dispatch({ type: "PLAYER1_INCREMENT" });
-store.dispatch({ type: "PLAYER1_INCREMENT" });
-store.dispatch({ type: "PLAYER1_INCREMENT" });
+// store.dispatch({ type: "PLAYER1_INCREMENT" });
 
 // we update subscribe to call the ReactDOM.render method whenever the state changes
 const render = () => {
@@ -43,7 +45,9 @@ const render = () => {
     <React.StrictMode>
       <App 
         p1score={ state.player1 }
-        onIncrement={() => store.dispatch({ type: "PLAYER1_INCREMENT"})}
+        p2score={ state.player2 }
+        onIncrement1={() => store.dispatch({ type: "PLAYER1_INCREMENT"})}
+        onIncrement2={() => store.dispatch({ type: "PLAYER2_INCREMENT"})}
       />
     </React.StrictMode>,
     document.getElementById('root')
