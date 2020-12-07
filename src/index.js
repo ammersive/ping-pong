@@ -31,13 +31,29 @@ store.subscribe(() => {
 
 // trigger a player 1 increment action
 store.dispatch({ type: "PLAYER1_INCREMENT" });
+store.dispatch({ type: "PLAYER1_INCREMENT" });
+store.dispatch({ type: "PLAYER1_INCREMENT" });
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// we update subscribe to call the ReactDOM.render method whenever the state changes
+const render = () => {
+  let state = store.getState();
+
+  // passing in a state.value as a value prop
+  ReactDOM.render(
+    <React.StrictMode>
+      <App 
+        p1score={ state.player1 }
+        onIncrement={() => store.dispatch({ type: "PLAYER1_INCREMENT"})}
+      />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+};
+
+store.subscribe(render); // render when state changes
+render(); // render when page loads using initial state
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
