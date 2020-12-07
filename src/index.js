@@ -19,15 +19,25 @@ const server = state => ({
   ...state,
   player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
 });
-// const winner = state => ({ 
-//   ...state,
-//   winner : state.player1 === 21 || state.player2 === 21 ? 
-// });
+const winner = state => { 
+  if (state.player1 === 21) {
+    return {
+      ...state,
+      winner: 1
+    }
+  } else if (state.player2 === 21) {
+    return {
+      ...state,
+      winner: 2
+    }
+  }
+  return { ...state, winner: 0 }
+}
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "PLAYER_1_SCORED": return server(player1(state));
-    case "PLAYER_2_SCORED": return server(player2(state));
+    case "PLAYER_1_SCORED": return winner(server(player1(state))); // like chaining in OOP, each func updates state in succession (but R to L)
+    case "PLAYER_2_SCORED": return winner(server(player2(state)));
     case "RESET": return initial;
     default: return state;
   }
@@ -58,6 +68,7 @@ const render = () => {
         p1score={ state.player1 }
         p2score={ state.player2 }
         player1Serving={ state.player1Serving }
+        winner={ state.winner }
         onIncrementP1={() => store.dispatch({ type: "PLAYER_1_SCORED"})}
         onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
         onReset={() => store.dispatch({ type: "RESET"})}
@@ -69,7 +80,6 @@ const render = () => {
 
 store.subscribe(render); // render when state changes
 render(); // render when page loads using initial state
-
 
 
 // If you want to start measuring performance in your app, pass a function
