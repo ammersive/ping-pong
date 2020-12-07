@@ -1,4 +1,4 @@
-const App = ({ p1score, p2score, onIncrementP1, onIncrementP2, onReset }) => (
+const App = ({ p1score, p2score, player1Serving, onIncrementP1, onIncrementP2, onReset }) => (
   <>
     {/* header */}
     <header className="jumbotron mt-4 mb-0">
@@ -8,7 +8,7 @@ const App = ({ p1score, p2score, onIncrementP1, onIncrementP2, onReset }) => (
     {/* scores */}
     <div className="row mb-4">
       <div className="col-md-6 mt-4">
-        <div className="card text-center bg-dark text-white">
+        <div className={`card text-center ${player1Serving? "bg-dark text-white" : ""}`}>
           <h5 className="card-header">Player 1</h5>
           <div className="card-body">
             <p className="card-text display-1">{ p1score }</p>
@@ -23,7 +23,7 @@ const App = ({ p1score, p2score, onIncrementP1, onIncrementP2, onReset }) => (
       </div>
 
       <div className="col-md-6 mt-4">
-        <div className="card text-center">
+        <div className={`card text-center ${player1Serving? "" : "bg-dark text-white"}`}>
           <h5 className="card-header">Player 2</h5>
           <div className="card-body">
             <p className="card-text display-1">{ p2score }</p>

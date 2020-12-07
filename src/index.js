@@ -7,48 +7,59 @@ import { createStore } from "redux";
 
 const initial = {
   player1: 0,
-  player2: 0,  
+  player2: 0,
+  player1Serving: true,
+  winner: 0
 };
+
+// reducer helper functions
+const player1 = state => ({ ...state, player1: state.player1 + 1 });
+const player2 = state => ({ ...state, player2: state.player2 + 1 });
+const server = state => ({ 
+  ...state,
+  player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
+});
+// const winner = state => ({ 
+//   ...state,
+//   winner : state.player1 === 21 || state.player2 === 21 ? 
+// });
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "PLAYER1_INCREMENT": return { 
-      ...state, 
-      player1: state.player1 + 1 
-    };
-    case "PLAYER2_INCREMENT": return { 
-      ...state, 
-      player2: state.player2 + 1 
-    };
+    case "PLAYER_1_SCORED": return server(player1(state));
+    case "PLAYER_2_SCORED": return server(player2(state));
     case "RESET": return initial;
     default: return state;
   }
 };
 
-const store = createStore(reducer, initial);
+const store = createStore(
+  reducer,
+  initial,
+  window.__REDUX_DEVTOOLS_EXTENSION__
+  && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
 
-// subscribe to changes
-store.subscribe(() => {
-  let state = store.getState();
-  // log the states
-  console.log(state.player1, state.player2);
-});
+// store.subscribe(() => {
+//   let state = store.getState();
+//   console.log(state.player1, state.player2); // see what's going on earlier in build
+// });
 
-// trigger a player 1 increment action
+// trigger a player 1 increment action // another earlier check
 // store.dispatch({ type: "PLAYER1_INCREMENT" });
 
 // we update subscribe to call the ReactDOM.render method whenever the state changes
 const render = () => {
-  let state = store.getState();
-
-  // passing in a state.value as a value prop
+  let state = store.getState();  
+  
   ReactDOM.render(
     <React.StrictMode>
       <App 
         p1score={ state.player1 }
         p2score={ state.player2 }
-        onIncrementP1={() => store.dispatch({ type: "PLAYER1_INCREMENT"})}
-        onIncrementP2={() => store.dispatch({ type: "PLAYER2_INCREMENT"})}
+        player1Serving={ state.player1Serving }
+        onIncrementP1={() => store.dispatch({ type: "PLAYER_1_SCORED"})}
+        onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
         onReset={() => store.dispatch({ type: "RESET"})}
       />
     </React.StrictMode>,
