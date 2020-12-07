@@ -1,3 +1,5 @@
+import ScoreBox from "./components/ScoreBox";
+
 const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrementP2, onReset }) => (
   <>
     {/* header */}
@@ -7,6 +9,23 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
 
     {/* scores */}
     <div className="row mb-4">
+
+      <ScoreBox 
+        score={ p1score }
+        serverStyling={`card text-center ${player1Serving? "bg-dark text-white" : ""}`}
+        heading={ "Player 1" }
+        onIncrement={ onIncrementP1 }
+      />
+
+      <ScoreBox 
+        score={ p2score }
+        serverStyling={`card text-center ${player1Serving? "" : "bg-dark text-white"}`}
+        heading={ "Player 2" }
+        onIncrement={ onIncrementP2 }
+      />
+
+      {/* not so sure if ScoreBox component is ideal, if there's more logic handling differeing across players. Let's see what tomorrow brings...
+      
       <div className="col-md-6 mt-4">
         <div className={`card text-center ${player1Serving? "bg-dark text-white" : ""}`}>
           <h5 className="card-header">Player 1</h5>
@@ -35,7 +54,7 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
             >+</button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
 
     { /* winner message */}
@@ -44,7 +63,6 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
       : null
     }
     
-
     <hr />
 
     { /* reset button */}
