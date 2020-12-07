@@ -7,7 +7,7 @@ import { createStore } from "redux";
 
 const initial = {
   player1: 0,
-  player2: 0,
+  player2: 0,  
 };
 
 const reducer = (state, action) => {
@@ -20,6 +20,7 @@ const reducer = (state, action) => {
       ...state, 
       player2: state.player2 + 1 
     };
+    case "RESET": return initial;
     default: return state;
   }
 };
@@ -46,8 +47,9 @@ const render = () => {
       <App 
         p1score={ state.player1 }
         p2score={ state.player2 }
-        onIncrement1={() => store.dispatch({ type: "PLAYER1_INCREMENT"})}
-        onIncrement2={() => store.dispatch({ type: "PLAYER2_INCREMENT"})}
+        onIncrementP1={() => store.dispatch({ type: "PLAYER1_INCREMENT"})}
+        onIncrementP2={() => store.dispatch({ type: "PLAYER2_INCREMENT"})}
+        onReset={() => store.dispatch({ type: "RESET"})}
       />
     </React.StrictMode>,
     document.getElementById('root')
