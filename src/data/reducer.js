@@ -22,6 +22,7 @@ const winner = state => {
   return { ...state, winner: 0 }
 }
 
+// reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case "PLAYER_1_SCORED": return winner(server(player1(state))); // like chaining in OOP, each func updates state in succession (but R to L)

@@ -3,65 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import { createStore } from "redux";
-// import initial from "./data/initial";
-// import reducer from "./data/reducer";
 import store from "./data/store";
 
-// const initial = {
-//   player1: 0,
-//   player2: 0,
-//   player1Serving: true,
-//   winner: 0
-// };
 
-// // reducer helper functions
-// const player1 = state => ({ ...state, player1: state.player1 + 1 });
-// const player2 = state => ({ ...state, player2: state.player2 + 1 });
-// const server = state => ({ 
-//   ...state,
-//   player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
-// });
-// const winner = state => { 
-//   if (state.player1 >= 21) {
-//     return {
-//       ...state,
-//       winner: 1
-//     }
-//   } else if (state.player2 >= 21) {
-//     return {
-//       ...state,
-//       winner: 2
-//     }
-//   }
-//   return { ...state, winner: 0 }
-// }
-
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "PLAYER_1_SCORED": return winner(server(player1(state))); // like chaining in OOP, each func updates state in succession (but R to L)
-//     case "PLAYER_2_SCORED": return winner(server(player2(state)));
-//     case "RESET": return initial;
-//     default: return state;
-//   }
-// };
-
-// const store = createStore(
-//   reducer,
-//   initial,
-//   window.__REDUX_DEVTOOLS_EXTENSION__
-//   && window.__REDUX_DEVTOOLS_EXTENSION__(),
-// );
-
-// store.subscribe(() => {
-//   let state = store.getState();
-//   console.log(state.player1, state.player2); // see what's going on earlier in build
-// });
-
-// trigger a player 1 increment action // another earlier check
-// store.dispatch({ type: "PLAYER1_INCREMENT" });
-
-// we update subscribe to call the ReactDOM.render method whenever the state changes
+// update subscribe to call the ReactDOM.render method whenever the state changes
 const render = () => {
   let state = store.getState();  
   
