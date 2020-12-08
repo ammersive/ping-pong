@@ -1,7 +1,4 @@
-// disabled={ winner !== 0 }
-
-
-const ScoreBox = ({ score, serverStyling, heading, onIncrement }) => (
+const ScoreBox = ({ score, winner, serverStyling, heading, onIncrement }) => (
   <div className="col-md-6 mt-4">
     <div className={ serverStyling }>
       <h5 className="card-header">{ heading }</h5>
@@ -12,6 +9,7 @@ const ScoreBox = ({ score, serverStyling, heading, onIncrement }) => (
         <button
           onClick={ onIncrement } 
           className="form-control btn btn-success"
+          disabled={ winner !== 0 }
         >+</button>
       </div>
     </div>
@@ -19,6 +17,3 @@ const ScoreBox = ({ score, serverStyling, heading, onIncrement }) => (
 );
 
 export default ScoreBox;
-// const Paragraph = ({ children }) => (
-//   <p>{ children }</p>
-// );
