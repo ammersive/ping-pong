@@ -7,17 +7,11 @@ const player2 = state => ({ ...state, player2: state.player2 + 1 });
 
 const server = state => { 
   const {player1, player2, player1Serving} = state;
-  // If both players pass 20 points, alternate server every 2 points i
-  if ((state.player1 >= 20) && (state.player2 >= 20)) {
-    return {
-      ...state,
-      player1Serving: (player1 + player2) % 2 === 0 ? !player1Serving : player1Serving
-    }
-  }
-  // Alternate server every 5 points 
+  // Alternate server every 5 points, or, if both players pass 20 points, every 2
+  const alternation = ((player1 >= 20) && (player2 >= 20)) ? 2 : 5;    
   return {
     ...state,
-    player1Serving: (player1 + player2) % 5 === 0 ? !player1Serving : player1Serving
+    player1Serving: (player1 + player2) % alternation === 0 ? !player1Serving : player1Serving
   } 
 }
 
