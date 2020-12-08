@@ -7,12 +7,13 @@ import { connect } from "react-redux";
 // import the React component that we want to wrap in the same directory
 import ScoreBox1 from "./ScoreBox";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, { onIncrementP1 }) => { // pass in props as 2nd arg
   return {
     score: state.player1, 
     winner: state.winner, 
-    serving: state.player1Serving,   
-    onIncrement: state.onIncrementP1
+    serving: state.player1Serving,
+    heading: "Player 1",   
+    onIncrement: onIncrementP1
   };
 };
 
