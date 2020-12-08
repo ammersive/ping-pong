@@ -1,5 +1,7 @@
 import Header from "./components/Header";
 import ScoreBox from "./components/ScoreBox";
+import Winner from "./components/Winner";
+import ButtonReset from "./components/ButtonReset";
 
 const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrementP2, onReset }) => (
   <>
@@ -26,19 +28,14 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
 
     { /* winner message */}
     { winner ? 
-      <h2 className="alert alert-success">Player { winner } wins!</h2> 
+      <Winner>Player { winner } wins!</Winner> 
       : null
     }
     
     <hr />
 
     { /* reset button */}
-    <button
-      onClick={ onReset } 
-      className="btn btn-danger"
-    >
-      Reset
-    </button>
+    <ButtonReset onReset={ onReset }/>
   </>
 );
 
