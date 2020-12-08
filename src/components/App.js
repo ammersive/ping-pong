@@ -1,9 +1,12 @@
-import Header from "./components/Header";
-import ScoreBox from "./components/ScoreBox";
-import Winner from "./components/Winner";
-import ButtonReset from "./components/ButtonReset";
+import Header from "./Header";
+import ScoreBox from "./ScoreBox";
+// import Winner from "./Winner";
+// import ButtonReset from "./ButtonReset";
 
-const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrementP2, onReset }) => (
+import Winner from "./Winner"; // this imports index.js
+import ButtonReset from "./ButtonReset";
+
+const App = ({ p1score, p2score, winner, player1Serving, onIncrementP1, onIncrementP2, onReset }) => (
   <>
     {/* header */}
     <Header>PongPing</Header>
@@ -27,7 +30,8 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
     </div>
 
     { /* winner message */}
-    <Winner winner={ winner }/>
+    {/* <Winner winner={ winner }/> */}
+    <Winner />
     
     <hr />
 

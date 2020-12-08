@@ -1,0 +1,1 @@
+// mapStateToProps with ScoreBox 1 info

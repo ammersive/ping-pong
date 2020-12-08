@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import store from "./data/store";
+import { Provider } from "react-redux";
 
+// import initial from "./data/initial";
+// import reducer from "./data/reducer";
 
-// update subscribe to call the ReactDOM.render method whenever the state changes
-
-// delete render, and call to render below, keep store, 
-const render = () => { // delete
-  let state = store.getState(); // keep 
+const render = () => {
+let state = store.getState(); // keep 
   
-  ReactDOM.render(
-    <React.StrictMode>
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={ store }>
       <App 
         p1score={ state.player1 }
         p2score={ state.player2 }
@@ -23,14 +24,13 @@ const render = () => { // delete
         onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
         onReset={() => store.dispatch({ type: "RESET"})}
       />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}; // delete
-
-store.subscribe(render); // render when state changes
-render(); // render when page loads using initial state
-
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+};
+render();
+store.subscribe(render);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
