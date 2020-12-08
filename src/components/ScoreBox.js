@@ -1,3 +1,5 @@
+// disabled={ winner !== 0 }
+
 
 const ScoreBox = ({ score, serverStyling, heading, onIncrement }) => (
   <div className="col-md-6 mt-4">
