@@ -1,11 +1,10 @@
+import Header from "./components/Header";
 import ScoreBox from "./components/ScoreBox";
 
 const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrementP2, onReset }) => (
   <>
     {/* header */}
-    <header className="jumbotron mt-4 mb-0">
-      <h1>PongPing</h1>
-    </header>
+    <Header>PongPing</Header>
 
     {/* scores */}
     <div className="row mb-4">
