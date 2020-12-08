@@ -1,4 +1,6 @@
-const Winner = ({ children }) => (
-  <h2 className="alert alert-success">{ children }</h2>
+const Winner = ({ winner }) => (
+  winner ? 
+  <h2 className="alert alert-success">Player { winner } wins!</h2> 
+  : null  
 );
 export default Winner;

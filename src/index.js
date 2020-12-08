@@ -7,8 +7,10 @@ import store from "./data/store";
 
 
 // update subscribe to call the ReactDOM.render method whenever the state changes
-const render = () => {
-  let state = store.getState();  
+
+// delete render, and call to render below, keep store, 
+const render = () => { // delete
+  let state = store.getState(); // keep 
   
   ReactDOM.render(
     <React.StrictMode>
@@ -24,7 +26,7 @@ const render = () => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-};
+}; // delete
 
 store.subscribe(render); // render when state changes
 render(); // render when page loads using initial state

@@ -1,6 +1,6 @@
-const ScoreBox = ({ score, winner, serverStyling, heading, onIncrement }) => (
+const ScoreBox = ({ score, winner, serving, heading, onIncrement }) => (
   <div className="col-md-6 mt-4">
-    <div className={ serverStyling }>
+    <div className={ `card text-center ${serving ? "bg-dark text-white" : ""}` }>
       <h5 className="card-header">{ heading }</h5>
       <div className="card-body">
         <p className="card-text display-1">{ score }</p>

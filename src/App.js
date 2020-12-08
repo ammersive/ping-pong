@@ -12,14 +12,14 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
     <div className="row mb-4">
       <ScoreBox 
         score={ p1score }
-        serverStyling={`card text-center ${player1Serving? "bg-dark text-white" : ""}`}
+        serving={ player1Serving }
         heading={ "Player 1" }
         onIncrement={ onIncrementP1 }
         winner={ winner }
       />
       <ScoreBox 
         score={ p2score }
-        serverStyling={`card text-center ${player1Serving? "" : "bg-dark text-white"}`}
+        serving={ !player1Serving }
         heading={ "Player 2" }
         onIncrement={ onIncrementP2 }
         winner={ winner }
@@ -27,10 +27,7 @@ const App = ({ p1score, p2score, player1Serving, winner, onIncrementP1, onIncrem
     </div>
 
     { /* winner message */}
-    { winner ? 
-      <Winner>Player { winner } wins!</Winner> 
-      : null
-    }
+    <Winner winner={ winner }/>
     
     <hr />
 
