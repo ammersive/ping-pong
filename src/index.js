@@ -6,28 +6,26 @@ import reportWebVitals from './reportWebVitals';
 import store from "./data/store";
 import { Provider } from "react-redux";
 
-// import initial from "./data/initial";
-// import reducer from "./data/reducer";
 
 const render = () => {
-let state = store.getState(); // keep 
-  
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={ store }>
-      <App 
-        p1score={ state.player1 }
-        p2score={ state.player2 }
-        player1Serving={ state.player1Serving }
-        winner={ state.winner }
-        onIncrementP1={() => store.dispatch({ type: "PLAYER_1_SCORED"})}
-        onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
-        onReset={() => store.dispatch({ type: "RESET"})}
-      />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let state = store.getState(); 
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={ store }>
+        <App 
+          p1score={ state.player1 }
+          p2score={ state.player2 }
+          player1Serving={ state.player1Serving }
+          winner={ state.winner }
+          onIncrementP1={() => store.dispatch({ type: "PLAYER_1_SCORED"})}
+          onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
+          onReset={() => store.dispatch({ type: "RESET"})}
+        />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 };
 render();
 store.subscribe(render);
