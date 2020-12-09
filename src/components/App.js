@@ -7,6 +7,9 @@ import Winner from "./Winner"; // imports r-r wrapper (components/Winner/index.j
 
 const App = ({ p1score, p2score, winner, player1Serving, onIncrementP1, onIncrementP2, onReset }) => (
   <>
+    {/* Settings - move to index.js with display/hide logic?? */}
+    {/* <Settings /> */}
+
     {/* header */}
     <Header>PongPing</Header>
 
