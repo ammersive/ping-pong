@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
     score: state.player2, 
     winner: state.winner, 
     serving: !state.player1Serving,
-    heading: "Player 2",       
+    heading: state.player2Name,       
   };
 };
 
