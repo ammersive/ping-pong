@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Settings from './components/Settings';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import store from "./data/store";
@@ -10,7 +9,6 @@ import { Provider } from "react-redux";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={ store }>
-      <Settings/>
       <App/>
     </Provider>
   </React.StrictMode>,
