@@ -30,6 +30,8 @@ class Settings extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    // pass copy of local state to handleSave, so we can pass this data up to index.js wrapper 
+    this.props.handleSave({ ...this.state });
   }
 
   render() {
