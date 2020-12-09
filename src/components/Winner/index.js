@@ -6,9 +6,8 @@ import { connect } from "react-redux";
 // import the component we want to wrap
 import Winner from "./Winner";
 
-// mapStateToProps is called every time the store state changes
-// It receives the entire store state
-// Use it here to pass updated values to props passed to the specific instance of the component (currently in App.js)
+// mapStateToProps is called every time the store state changes, and receives the entire store state
+// Used here to pass updated values to props, then passed to the specific instance of the component
 const mapStateToProps = state => {
   return {
     winner: state.winner,

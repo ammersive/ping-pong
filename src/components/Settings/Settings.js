@@ -1,3 +1,5 @@
+// Class based component because multiple values to track, so more straightforward than introducing more reducers
+
 import { Component } from "react";
 
 class Settings extends Component {
@@ -30,7 +32,7 @@ class Settings extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    // pass copy of local state to handleSave, so we can pass this data up to index.js wrapper 
+    // pass copy of local state to handleSave, so we can pass this data up to index.js wrapper, without this component directly affecting the wrapper, thus maintaining its reusability 
     this.props.handleSave({ ...this.state });
   }
 

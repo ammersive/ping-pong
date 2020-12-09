@@ -1,6 +1,6 @@
 // Action creators:
-// Functions which return an action when called (in wrapper files)
-// Can also clean up data before sending to reducers here
+// Functions which return an action when called (in the r-r wrapper files)
+// Can also clean up data before sending to reducers here, e.g. as with +winningScore
 
 export const increment1 = () => {
   return {
