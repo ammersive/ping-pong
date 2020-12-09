@@ -16,10 +16,10 @@ const App = ({ p1score, p2score, winner, player1Serving, onIncrementP1, onIncrem
     {/* scores */}
     <div className="row mb-4">
       <ScoreBox1
-          onIncrement={ onIncrementP1 } // will eventually dispatch actions through r-r
+          // onIncrement={ onIncrementP1 } // will eventually dispatch actions through r-r
         />
         <ScoreBox2
-          onIncrement={ onIncrementP2 } // will eventually dispatch actions through r-r
+          // onIncrement={ onIncrementP2 } // will eventually dispatch actions through r-r
         />      
     </div>
 

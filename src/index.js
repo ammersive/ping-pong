@@ -18,8 +18,8 @@ const render = () => {
           // p2score={ state.player2 }
           // player1Serving={ state.player1Serving }
           // winner={ state.winner }
-          onIncrementP1={() => store.dispatch({ type: "PLAYER_1_SCORED"})}
-          onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
+          // onIncrementP1={() => store.dispatch({ type: "PLAYER_1_SCORED"})}
+          // onIncrementP2={() => store.dispatch({ type: "PLAYER_2_SCORED"})}
           onReset={() => store.dispatch({ type: "RESET"})}
         />
       </Provider>

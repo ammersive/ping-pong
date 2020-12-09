@@ -18,6 +18,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-// Connect function connects mapStateToProps to the React component
+const mapDispatchToProps = (dispatch) => { 
+  return {
+    onIncrement: () => dispatch({ type: "PLAYER_1_SCORED"})       
+  };
+};
+
+// Connect function connects mapStateToProps, mapDispatchToProps to the React component
 // Returns a new React component
-export default connect(mapStateToProps)(ScoreBox1);
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreBox1);
