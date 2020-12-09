@@ -1,4 +1,6 @@
-const ButtonReset = ({ onReset }) => (
+// component
+
+const Button = ({ onReset }) => (
   <button  
       onClick={ onReset } 
       className="btn btn-danger"
@@ -6,4 +8,4 @@ const ButtonReset = ({ onReset }) => (
     Reset
   </button>
 );
-export default ButtonReset;
+export default Button;
