@@ -6,10 +6,14 @@ import { connect } from "react-redux";
 // import the component we want to wrap
 import Button from "./Button";
 
+// import action creator function
+import { reset } from "../../data/actions";
+
 //  Using mapDispatchToProps to create a function that dispatches when called, and which can be passed as props to the relevant component
 const mapDispatchToProps = (dispatch) => { 
   return {
-    onReset: () => dispatch({ type: "RESET"})       
+    // pass onReset an anon func that dispatches the reset action creator func 
+    onReset: () => dispatch(reset())       
   };
 };
 

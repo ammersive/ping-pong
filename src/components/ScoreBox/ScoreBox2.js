@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 // import the component we want to wrap
 import ScoreBox2 from "./ScoreBox";
 
+// import action creator function
+import { increment2 } from "../../data/actions";
+
 // mapStateToProps is called every time the store state changes
 // It receives the entire store state
 // Use it here to pass updated values to props passed to the specific instance of the component (currently in App.js)
@@ -21,7 +24,8 @@ const mapStateToProps = (state) => {
 //  Using mapDispatchToProps to create a function that dispatches when called, and which can be passed as props to the relevant component
 const mapDispatchToProps = (dispatch) => { 
   return {
-    onIncrement: () => dispatch({ type: "PLAYER_2_SCORED"})       
+    // pass onIncrement an anon func that dispatches the increment2 action creator func 
+    onIncrement: () => dispatch(increment2())       
   };
 };
 
