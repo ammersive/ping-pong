@@ -1,4 +1,4 @@
-// the React component
+// component
 
 const ScoreBox = ({ score, winner, serving, heading, onIncrement }) => (
   <div className="col-md-6 mt-4">
