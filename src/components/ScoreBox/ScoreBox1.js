@@ -12,8 +12,7 @@ const mapStateToProps = (state, { onIncrementP1 }) => { // pass in props as 2nd 
     score: state.player1, 
     winner: state.winner, 
     serving: state.player1Serving,
-    heading: "Player 1",   
-    onIncrement: onIncrementP1
+    heading: "Player 1",       
   };
 };
 

@@ -16,10 +16,10 @@ const App = ({ p1score, p2score, winner, player1Serving, onIncrementP1, onIncrem
     {/* scores */}
     <div className="row mb-4">
       <ScoreBox1
-          heading={ "Player 1" }
+          onIncrement={ onIncrementP1 }
         />
         <ScoreBox2
-          heading={ "Player 2" }
+          onIncrement={ onIncrementP2 }
         />
       {/* <ScoreBox 
         score={ p1score }
