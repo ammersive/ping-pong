@@ -14,7 +14,8 @@ const mapStateToProps = state => {
     player1Name: state.player1Name,
     player2Name: state.player2Name,
     winningScore: state.winningScore,
-    alternateEvery: state.alternateEvery 
+    alternateEvery: state.alternateEvery,
+    gameStarted: state.gameStarted 
   };
 };
 

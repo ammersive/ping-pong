@@ -9,13 +9,7 @@ import Game from "./Game";
 // mapStateToProps is called every time the store state changes, and receives the entire store state
 // Used here to pass updated values to props, then passed to the specific instance of the component
 const mapStateToProps = state => { 
-  return {
-    player1: state.player1,
-    player2: state.player2,
-    player1Serving: state.player1Serving,
-    winner: state.winner,
-    winningScore: state.winningScore,
-    alternateEvery: state.alternateEvery,
+  return {    
     gameStarted: state.gameStarted    
   };
 };

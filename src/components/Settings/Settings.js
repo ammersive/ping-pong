@@ -38,8 +38,8 @@ class Settings extends Component {
 
   render() {
     let { winningScore, alternateEvery, player1Name, player2Name } = this.state;
-
-    return (
+    let { gameStarted } = this.props;
+    return gameStarted ? null : (      
       <form onSubmit={ this.handleSubmit }>
         <div className="form-group">
           <label htmlFor="player1Name">Player 1 Name</label>
