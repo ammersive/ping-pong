@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 // import the component we want to wrap
 import Settings from "./Settings";
 // import action creator function
-import { saveSettings } from "../../data/actions";
+// import { saveSettings } from "../../data/actions/state";
+
+import { postNewGame } from "../../data/actions/api"
 
 // mapStateToProps is called every time the store state changes, and receives the entire store state
 // Used here to pass updated values to props, then passed to the specific instance of the component
@@ -24,7 +26,7 @@ const mapDispatchToProps = dispatch => {
   // pass handleSave an anon func that dispatches the saveSettings action creator func 
   // 'data' is copy of state, passed up from form on point of submit
   return {
-    handleSave: data => dispatch(saveSettings(data)),
+    handleSave: data => dispatch(postNewGame(data)),
   };
 };
 

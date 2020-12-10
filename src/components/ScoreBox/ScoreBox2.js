@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import ScoreBox2 from "./ScoreBox";
 
 // import action creator function
-import { increment2 } from "../../data/actions";
+import { increment2 } from "../../data/actions/state";
 
 // mapStateToProps is called every time the store state changes, and receives the entire store state
 // Used here to pass updated values to props, then passed to the specific instance of the component
