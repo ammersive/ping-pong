@@ -32,13 +32,12 @@ class Settings extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    // pass copy of local state to handleSave, so we can pass this data up to index.js wrapper, without this component directly affecting the wrapper, thus maintaining its reusability 
+    // pass copy of local state to handleSave, so we can pass this data up to index.js wrapper, without this component directly affecting the wrapper, thus maintaining its reusability. Handle save is passed as a prop from parent wrapper 
     this.props.handleSave({ ...this.state });
   }
 
   render() {
-    let { player1Name, player2Name } = this.props;
-    let { winningScore, alternateEvery } = this.state;
+    let { winningScore, alternateEvery, player1Name, player2Name } = this.state;
 
     return (
       <form onSubmit={ this.handleSubmit }>

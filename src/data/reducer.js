@@ -10,7 +10,8 @@ const saveSettings = (state, { player1Name, player2Name, winningScore, alternate
     player1Name: player1Name,
     player2Name: player2Name,
     winningScore: winningScore,
-    alternateEvery: alternateEvery
+    alternateEvery: alternateEvery,
+    gameStarted: true // gameStarted is in global state, and does not need to be set by the user, and didn't come from Settings component. But submitting the form dispatches an action that fires this reducer, so we can just change gameStarted to true here 
   }; // Following this, the above are now part of state, so we don't pass them in as actions below
 };
 
@@ -34,12 +35,14 @@ const winner = (state) => {
   if ((player1 >= winningScore) && (player2 <= (player1 - 2))) {
     return {
       ...state,
-      winner: 1
+      winner: 1,
+      gameStarted: false
     }
   } else if ((player2 >= winningScore) && (player1 <= (player2 - 2))) {
     return {
       ...state,
-      winner: 2
+      winner: 2,
+      gameStarted: false
     }
   }
   return { ...state, winner: 0 }

@@ -4,7 +4,8 @@ const initial = {
   player1Serving: true,
   winner: 0,
   winningScore: 21,
-  alternateEvery: 5
+  alternateEvery: 5,
+  gameStarted: false
 };
 
 export default initial;

@@ -20,13 +20,14 @@ export const reset = () => {
   };
 };
 
-export const saveSettings = ({ player1Name, player2Name, winningScore, alternateEvery }) => {
+export const saveSettings = ({ player1Name, player2Name, winningScore, alternateEvery, gameStarted }) => {
   return {
     type: "SAVE_SETTINGS",
     player1Name: player1Name,
     player2Name: player2Name,
     winningScore: +winningScore, // cast to number before sending to reducer
-    alternateEvery: +alternateEvery // cast to number before sending to reducer
+    alternateEvery: +alternateEvery, // cast to number before sending to reducer
+    gameStarted: gameStarted
   };
 };
 
