@@ -35,14 +35,12 @@ const winner = (state) => {
   if ((player1 >= winningScore) && (player2 <= (player1 - 2))) {
     return {
       ...state,
-      winner: 1,
-      gameStarted: false
+      winner: 1
     }
   } else if ((player2 >= winningScore) && (player1 <= (player2 - 2))) {
     return {
       ...state,
-      winner: 2,
-      gameStarted: false
+      winner: 2
     }
   }
   return { ...state, winner: 0 }
