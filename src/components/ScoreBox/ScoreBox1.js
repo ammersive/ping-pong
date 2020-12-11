@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import ScoreBox1 from "./ScoreBox";
 
 // import action creator function
-import { increment1 } from "../../data/actions/state";
+import { patchScore } from "../../data/actions/api";
 
 // mapStateToProps is called every time the store state changes, and receives the entire store state
 // Used here to pass updated values to props, then passed to the specific instance of the component
@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => { 
   return {
     // pass onIncrement an anon func that dispatches the increment1 action creator func 
-    onIncrement: () => dispatch(increment1())       
+    onIncrement: () => dispatch(patchScore(1))       
   };
 };
 

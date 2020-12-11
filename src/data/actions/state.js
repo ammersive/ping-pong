@@ -2,17 +2,14 @@
 // Functions which return an action when called (in the r-r wrapper files)
 // Can also clean up data before sending to reducers here, e.g. as with +winningScore
 
-export const increment1 = () => {
-  return {
-    type: "PLAYER_1_SCORED"
+export const increment = (player) => {
+  if (player === 1) {
+    return {type: "PLAYER_1_SCORED"};
+  } else {
+    console.log(player);
+    return {type: "PLAYER_2_SCORED"}; 
   };
-};
-
-export const increment2 = () => {
-  return {
-    type: "PLAYER_2_SCORED"
-  };
-};
+};  
 
 export const reset = () => {
   return {
