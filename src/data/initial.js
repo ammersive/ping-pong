@@ -5,8 +5,7 @@ const initial = {
   winner: 0,
   winningScore: 21,
   alternateEvery: 5,
-  gameStarted: false,
-  currentGame: 0, // current game id needs to be stored in app state, api will update
+  gameStarted: false
 };
 
 export default initial;
