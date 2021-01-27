@@ -34,6 +34,7 @@ class Settings extends Component {
     e.preventDefault();
     // pass copy of local state to handleSave, so we can pass this data up to index.js wrapper, without this component directly affecting the wrapper, thus maintaining its reusability. Handle save is passed as a prop from parent wrapper 
     this.props.handleSave({ ...this.state });
+    this.setState({ player1Name: "", player2Name: "" });
   }
 
   render() {

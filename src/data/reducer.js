@@ -4,7 +4,11 @@ import initial from "./initial";
 
 // Take values set in the SAVE_SETTINGS action and update the state with these new values
 // Second arg in curlies are properties of the action
-const saveSettings = (state, { player1Name, player2Name, winningScore, alternateEvery }) => { 
+const saveSettings = (state, { player1Name, player2Name, winningScore, alternateEvery }) => {
+  // trim trailing whitespace from player names
+  player1Name = player1Name.trimLeft().trimRight();  
+  player2Name = player2Name.trimLeft().trimRight();  
+
   return {
     ...state, 
     player1Name: player1Name,
